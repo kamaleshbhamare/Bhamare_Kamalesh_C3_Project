@@ -1,0 +1,15 @@
+# Maven
+target/
+pom.xml.tag
+pom.releaseBackup
+pom.next
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.class
+
+# OS
+.DS_Store
+Thumbs.db
