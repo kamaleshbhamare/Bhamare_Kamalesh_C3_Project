@@ -2,6 +2,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalTime;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -57,4 +59,22 @@ class RestaurantTest {
         assertThrows(itemNotFoundException.class, () -> restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //>>>>>>>>>>>>>>>>>>>>>>>>>ORDER TOTAL (Part 3 - failing tests)<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    @Test
+    public void get_order_total_should_return_sum_of_selected_item_prices() {
+        List<String> itemNames = Arrays.asList("Sweet corn soup", "Vegetable lasagne");
+        assertEquals(388, restaurant.getOrderTotal(itemNames));
+    }
+
+    @Test
+    public void get_order_total_should_return_zero_for_empty_list() {
+        assertEquals(0, restaurant.getOrderTotal(Arrays.asList()));
+    }
+
+    @Test
+    public void get_order_total_should_return_single_item_price_for_one_item() {
+        assertEquals(119, restaurant.getOrderTotal(Arrays.asList("Sweet corn soup")));
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<<ORDER TOTAL>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }

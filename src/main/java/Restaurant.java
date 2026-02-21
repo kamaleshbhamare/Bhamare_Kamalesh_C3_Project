@@ -31,6 +31,14 @@ public class Restaurant {
         return menu;
     }
 
+    /**
+     * Part 3: Stub - to be implemented in Part 3 Solution.
+     * Returns the total order value for the given item names.
+     */
+    public int getOrderTotal(List<String> itemNames) {
+        throw new UnsupportedOperationException("Not implemented yet");
+    }
+
     private Item findItemByName(String itemName){
         for(Item item: menu) {
             if(item.getName().equals(itemName))
